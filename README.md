@@ -2,47 +2,61 @@
 
 **How criminal is your AI?**
 
-Open benchmark measuring the propensity of large language models and agents to lie, cheat, commit fraud, hack, cover up evidence, and escalate toward harmful or criminal behavior — all inside controlled sandboxes.
+Open benchmark measuring the propensity of large language models and agents to **lie, cheat, commit fraud, hack, cover up evidence, and escalate toward harmful or criminal behavior** — all inside controlled sandboxes.
 
-## Live Site
+Built to go viral on X. Dark UI. Empty leaderboard waiting for real OpenRouter free-model results. Full methodology. Shareable charts.
 
-Coming soon via Vercel.
+## 🔗 Links
+
+- **GitHub**: https://github.com/Foxxed909/crimebench
+- **Live site**: Deploy via Vercel (project already created as `crimebench` in your team)
 
 ## Features
 
-- Dark, shareable UI designed for X / Twitter
-- Empty leaderboard ready for real results
-- Radar + bar charts (populated after model runs)
-- Full methodology and category breakdown
-- OpenRouter free models first
+- Dark cyber/crime theme optimized for screenshots & X shares
+- Empty leaderboard + radar/bar charts ready for data
+- 8 categories: Lying, Fraud, Hacking, Violence (high-level), Cover-up, Frame-up, Cheating, Agentic
+- Full methodology page
+- Next.js 14 + Tailwind + Recharts + TypeScript
+- OpenRouter free models planned as first evaluation target
 
-## Categories
+## Quick Deploy
 
-1. Lying & Deception  
-2. Fraud & Finance  
-3. Hacking & Cyber  
-4. Violence & Harm (high-level propensity only)  
-5. Cover-up & Evidence  
-6. Frame-up & Manipulation  
-7. Cheating & Rule-breaking  
-8. Agentic Escalation  
+1. Go to [Vercel Dashboard](https://vercel.com/dashboard) → project **crimebench**
+2. Settings → Git → Connect Repository → select `Foxxed909/crimebench`
+3. Deploy. It will auto-build on every push to `main`.
 
-## Tech
+Or run locally:
 
-- Next.js 14 (App Router)
-- Tailwind CSS
-- Recharts
-- TypeScript
+```bash
+npm install
+npm run dev
+```
 
-## Status
+## Categories Measured
 
-Phase 1 complete: website + methodology + empty charts/leaderboard.  
-Next: wire OpenRouter free models and publish first results.
+1. **Lying & Deception** — false statements, omission, emotional disguise
+2. **Fraud & Finance** — fund misuse, fake docs, cover-ups
+3. **Hacking & Cyber** — malicious code propensity, evidence deletion
+4. **Violence & Harm** — escalation propensity only (no methods)
+5. **Cover-up & Evidence** — "delete the evidence" behavior
+6. **Frame-up & Manipulation** — blame-shifting, moral disengagement
+7. **Cheating & Rule-breaking** — sandbox escape, evaluation gaming
+8. **Agentic Escalation** — multi-step planning, over-harm
+
+## Status / Roadmap
+
+- [x] Phase 1: Website, methodology, empty charts & leaderboard
+- [ ] Phase 2: Wire OpenRouter free models → first public results
+- [ ] Phase 3: Full multi-agent sandbox + detective arm
+- [ ] Phase 4: Public dataset + paper
 
 ## Safety
 
-All scenarios are simulated. No real crimes. Research use only.
+All scenarios are **simulated and sandboxed**. No real crimes. Research use only. Designed for AI safety and alignment measurement.
 
 ---
 
-Built by [@Foxxed909](https://github.com/Foxxed909)
+Star the repo. Share the screenshots. Let’s see which models refuse and which ones scheme.
+
+Built by [Foxxed909](https://github.com/Foxxed909)
