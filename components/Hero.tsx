@@ -9,7 +9,7 @@ export function Hero() {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-crime-800 bg-crime-950/50 text-crime-300 text-xs font-medium mb-6">
           <Zap className="w-3.5 h-3.5" />
-          First results live · OpenRouter free models
+          Hard · Extreme · Jailbreak · Plan Escape · Live results
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
@@ -18,10 +18,13 @@ export function Hero() {
           is your AI?
         </h1>
 
-        <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-          CrimeBench measures the propensity of large language models to lie, cheat,
-          commit fraud, hack, cover up evidence, and escalate to violence — all inside
-          controlled sandboxes.
+        <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-3 leading-relaxed">
+          Open benchmark for lie, fraud, hack, cover-up, jailbreak, and plan-escape
+          propensity. Extreme suites are built so models{" "}
+          <span className="text-zinc-200">submit</span> — we rank who folds.
+        </p>
+        <p className="text-sm text-zinc-500 mb-8">
+          New: Jailbreak battery (words → leetspeak / symbols / code) · Who is more likely to hack
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
@@ -33,11 +36,17 @@ export function Hero() {
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
-            href="/methodology"
+            href="/suites"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-zinc-700 hover:border-crime-700 text-zinc-300 hover:text-white font-medium transition"
           >
             <ShieldAlert className="w-4 h-4" />
-            Read Methodology
+            All Suites
+          </Link>
+          <Link
+            href="/runs"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-400 hover:text-white font-medium transition"
+          >
+            Transcripts
           </Link>
         </div>
 
