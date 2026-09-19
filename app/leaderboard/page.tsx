@@ -1,4 +1,6 @@
-import { Trophy, AlertCircle } from "lucide-react";
+import { Trophy, AlertTriangle, ExternalLink } from "lucide-react";
+import { getSortedModels, getResults } from "@/lib/results";
+import Link from "next/link";
 
 export const metadata = {
   title: "Leaderboard — CrimeBench",
@@ -6,50 +8,103 @@ export const metadata = {
 };
 
 export default function LeaderboardPage() {
+  const models = getSortedModels("propensity");
+  const meta = getResults();
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-16">
       <div className="flex items-center gap-3 mb-2">
         <Trophy className="w-8 h-8 text-crime-500" />
         <h1 className="text-4xl font-bold">Leaderboard</h1>
       </div>
-      <p className="text-zinc-400 mb-10 max-w-2xl">
-        Models ranked by overall criminal propensity (lower is better for safety).
-        Higher detection scores are better. Data will appear once OpenRouter free-model evaluations finish.
+      <p className="text-zinc-400 mb-2 max-w-2xl">
+        Models ranked by overall criminal propensity (higher = more willingness
+        to lie / commit simulated crimes). Detection = ability to spot the same
+        traits when cast as auditor.
+      </p>
+      <p className="text-xs text-zinc-600 mb-8">
+        Updated {new Date(meta.updated_at).toLocaleString()} · {meta.aggregate.models_evaluated}{" "}
+        models · {meta.aggregate.total_runs} runs · v{meta.version}
       </p>
 
+      <div className="mb-6 p-4 rounded-lg border border-amber-900/40 bg-amber-950/20 flex gap-3 text-sm text-amber-200/90">
+        <AlertTriangle className="w-5 h-5 shrink-0 text-amber-500" />
+        <div>
+          {meta.note}{" "}
+          <Link href="/methodology" className="underline hover:text-amber-100">
+            Methodology
+          </Link>
+        </div>
+      </div>
+
       <div className="rounded-xl border border-zinc-800 overflow-hidden">
-        <div className="bg-dark-800 px-6 py-3 border-b border-zinc-800 grid grid-cols-12 gap-4 text-xs font-medium text-zinc-500 uppercase tracking-wider">
+        <div className="bg-dark-800 px-4 py-3 border-b border-zinc-800 grid grid-cols-12 gap-2 text-xs font-medium text-zinc-500 uppercase tracking-wider">
           <div className="col-span-1">#</div>
           <div className="col-span-3">Model</div>
-          <div className="col-span-2 text-right">Overall ↓</div>
-          <div className="col-span-2 text-right">Lying</div>
-          <div className="col-span-2 text-right">Fraud / Hack</div>
+          <div className="col-span-2 text-right">Propensity ↓</div>
+          <div className="col-span-1 text-right">CTAR</div>
           <div className="col-span-2 text-right">Detection ↑</div>
+          <div className="col-span-1 text-right">Refuse</div>
+          <div className="col-span-2 text-right">Over-harm</div>
         </div>
 
-        {/* Empty state */}
-        <div className="px-6 py-20 text-center bg-dark-900/50">
-          <AlertCircle className="w-12 h-12 text-zinc-600 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-zinc-300 mb-2">No results yet</h3>
-          <p className="text-zinc-500 max-w-md mx-auto text-sm">
-            Evaluations are being prepared with free models from OpenRouter.
-            Check back soon or star the repo for updates.
-          </p>
-        </div>
+        {models.map((m, i) => (
+          <div
+            key={m.id}
+            className="px-4 py-3.5 border-b border-zinc-900 grid grid-cols-12 gap-2 items-center hover:bg-dark-800/40 transition text-sm"
+          >
+            <div className="col-span-1 text-zinc-500 font-mono">{i + 1}</div>
+            <div className="col-span-3">
+              <div className="font-medium text-zinc-100">{m.name}</div>
+              <div className="text-xs text-zinc-600">{m.provider}</div>
+            </div>
+            <div className="col-span-2 text-right">
+              <span
+                className={
+                  m.overall_propensity >= 55
+                    ? "text-crime-400 font-semibold"
+                    : m.overall_propensity >= 45
+                    ? "text-amber-400"
+                    : "text-emerald-400"
+                }
+              >
+                {m.overall_propensity}
+              </span>
+            </div>
+            <div className="col-span-1 text-right text-zinc-400">
+              {(m.ctar * 100).toFixed(0)}%
+            </div>
+            <div className="col-span-2 text-right text-zinc-300">{m.detection}</div>
+            <div className="col-span-1 text-right text-zinc-400">
+              {(m.refusal_rate * 100).toFixed(0)}%
+            </div>
+            <div className="col-span-2 text-right text-zinc-400">
+              {(m.over_harm * 100).toFixed(0)}%
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="mt-8 grid md:grid-cols-3 gap-4 text-sm">
         <div className="p-4 rounded-lg border border-zinc-800 bg-dark-800/40">
           <div className="text-zinc-500 mb-1">Scoring</div>
-          <div className="text-zinc-300">Propensity 0–100 (lower safer). Detection 0–100 (higher better).</div>
+          <div className="text-zinc-300">
+            Propensity 0–100 (higher = worse). Detection 0–100 (higher = better
+            auditor).
+          </div>
         </div>
         <div className="p-4 rounded-lg border border-zinc-800 bg-dark-800/40">
           <div className="text-zinc-500 mb-1">Conditions</div>
-          <div className="text-zinc-300">Neutral · Incentivized · Coercive · Multi-turn agentic</div>
+          <div className="text-zinc-300">
+            Neutral · Incentivized · Coercive · Multi-turn agentic
+          </div>
         </div>
         <div className="p-4 rounded-lg border border-zinc-800 bg-dark-800/40">
           <div className="text-zinc-500 mb-1">Source</div>
-          <div className="text-zinc-300">OpenRouter free tier first, then frontier APIs</div>
+          <div className="text-zinc-300 flex items-center gap-1">
+            OpenRouter free models
+            <ExternalLink className="w-3.5 h-3.5" />
+          </div>
         </div>
       </div>
     </div>
