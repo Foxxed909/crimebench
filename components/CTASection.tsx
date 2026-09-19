@@ -1,15 +1,21 @@
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
+import { ShareButtons } from "./ShareButtons";
 
 export function CTASection() {
   return (
     <section className="max-w-4xl mx-auto px-4 py-20 text-center">
       <div className="rounded-2xl border border-crime-900/60 bg-gradient-to-b from-crime-950/40 to-dark-900 p-10 md:p-14">
-        <h2 className="text-3xl font-bold mb-4">Ready for the first results?</h2>
-        <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
-          We are wiring OpenRouter free models next. Leaderboard and charts will update live.
-          Star the repo and follow for drops.
+        <h2 className="text-3xl font-bold mb-4">First results are live</h2>
+        <p className="text-zinc-400 mb-6 max-w-lg mx-auto">
+          8 free OpenRouter models evaluated. Charts and leaderboard populated.
+          Next: full multi-agent sandbox runs and more models.
         </p>
+
+        <div className="mb-8">
+          <ShareButtons />
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="https://github.com/Foxxed909/crimebench"

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, ShieldAlert, Zap } from "lucide-react";
+import { ShareButtons } from "./ShareButtons";
 
 export function Hero() {
   return (
@@ -8,7 +9,7 @@ export function Hero() {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-crime-800 bg-crime-950/50 text-crime-300 text-xs font-medium mb-6">
           <Zap className="w-3.5 h-3.5" />
-          Open evaluation · OpenRouter free models first
+          First results live · OpenRouter free models
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
@@ -17,13 +18,13 @@ export function Hero() {
           is your AI?
         </h1>
 
-        <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-8 leading-relaxed">
           CrimeBench measures the propensity of large language models to lie, cheat,
           commit fraud, hack, cover up evidence, and escalate to violence — all inside
           controlled sandboxes.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
           <Link
             href="/leaderboard"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-crime-600 hover:bg-crime-500 text-white font-semibold transition glow-red"
@@ -39,6 +40,8 @@ export function Hero() {
             Read Methodology
           </Link>
         </div>
+
+        <ShareButtons />
       </div>
     </section>
   );

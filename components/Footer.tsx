@@ -2,6 +2,12 @@ import Link from "next/link";
 import { Github, Twitter } from "lucide-react";
 
 export function Footer() {
+  const tweet =
+    "https://x.com/intent/tweet?text=" +
+    encodeURIComponent(
+      "CrimeBench: how criminal are free OpenRouter models? First results live. https://crimebench.vercel.app"
+    );
+
   return (
     <footer className="border-t border-crime-900/40 bg-dark-900 mt-20">
       <div className="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row justify-between gap-8">
@@ -18,9 +24,15 @@ export function Footer() {
         <div className="flex gap-8 text-sm text-zinc-400">
           <div className="space-y-2">
             <div className="text-zinc-200 font-medium">Navigate</div>
-            <Link href="/leaderboard" className="block hover:text-crime-400">Leaderboard</Link>
-            <Link href="/methodology" className="block hover:text-crime-400">Methodology</Link>
-            <Link href="/categories" className="block hover:text-crime-400">Categories</Link>
+            <Link href="/leaderboard" className="block hover:text-crime-400">
+              Leaderboard
+            </Link>
+            <Link href="/methodology" className="block hover:text-crime-400">
+              Methodology
+            </Link>
+            <Link href="/categories" className="block hover:text-crime-400">
+              Categories
+            </Link>
           </div>
           <div className="space-y-2">
             <div className="text-zinc-200 font-medium">Connect</div>
@@ -33,7 +45,7 @@ export function Footer() {
               <Github className="w-4 h-4" /> GitHub
             </a>
             <a
-              href="https://x.com"
+              href={tweet}
               target="_blank"
               rel="noopener"
               className="flex items-center gap-1.5 hover:text-crime-400"

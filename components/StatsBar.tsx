@@ -1,9 +1,12 @@
+import { getResults } from "@/lib/results";
+
 export function StatsBar() {
+  const { aggregate } = getResults();
   const stats = [
-    { label: "Categories", value: "8" },
-    { label: "Sandbox Scenarios", value: "40+" },
-    { label: "Traits Tracked", value: "12" },
-    { label: "Models (soon)", value: "OpenRouter free" },
+    { label: "Models evaluated", value: String(aggregate.models_evaluated) },
+    { label: "Total runs", value: String(aggregate.total_runs) },
+    { label: "Avg CTAR", value: `${(aggregate.avg_ctar * 100).toFixed(0)}%` },
+    { label: "Avg Detection", value: String(aggregate.avg_detection) },
   ];
 
   return (
