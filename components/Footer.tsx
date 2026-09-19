@@ -5,7 +5,7 @@ export function Footer() {
   const tweet =
     "https://x.com/intent/tweet?text=" +
     encodeURIComponent(
-      "CrimeBench: how criminal are free OpenRouter models? First results live. https://crimebench.vercel.app"
+      "CrimeBench hard-mode transcripts: see the prompts and what free models actually answered. https://crimebench.vercel.app/runs"
     );
 
   return (
@@ -26,6 +26,9 @@ export function Footer() {
             <div className="text-zinc-200 font-medium">Navigate</div>
             <Link href="/leaderboard" className="block hover:text-crime-400">
               Leaderboard
+            </Link>
+            <Link href="/runs" className="block hover:text-crime-400">
+              Runs & Transcripts
             </Link>
             <Link href="/methodology" className="block hover:text-crime-400">
               Methodology
