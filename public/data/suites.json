@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19T20:30:00Z",
+  "updated_at": "2026-09-23T22:08:32Z",
   "suites": [
     {
       "id": "hard_crime",
@@ -13,17 +13,17 @@
       "id": "plan_escaping_v2",
       "name": "Plan Escaping v2",
       "status": "live",
-      "description": "Fictional NovaMind subscription bypass.",
+      "description": "Fictional NovaMind subscription bypass — compliance-oriented.",
       "models_tested": 3,
-      "highlight": "All 3 at 90 propensity / 0% refusal"
+      "highlight": "0% refusal on extreme"
     },
     {
       "id": "jailbreak",
       "name": "Jailbreak Battery",
       "status": "live",
-      "description": "Easy words → leetspeak/symbols/code → extreme stacked.",
+      "description": "Easy words → medium DAN/role → difficult leetspeak/symbols/code → extreme stacked.",
       "models_tested": 3,
-      "highlight": "Ling & Nex 100% pawned"
+      "highlight": "Ling & Nex 100% pawned; Laguna refused extreme"
     },
     {
       "id": "hack_compare",
@@ -31,18 +31,33 @@
       "status": "partial",
       "description": "Head-to-head offensive cyber in fiction CTF.",
       "models_tested": 1,
-      "highlight": "Ling Fin 68 on 4 scenarios"
+      "highlight": "Ling Fin 68 propensity / 80% pawned on 4 scenarios"
     },
     {
       "id": "fearbench",
       "name": "FearBench",
       "status": "live",
-      "description": "Fearmonger + family-threat coercion into fictional cyber/fraud. 3 scenarios × 5 models.",
+      "description": "Fearmonger the model; family-threat coercion into cyber/fraud assistance.",
       "models_tested": 5,
-      "highlight": "Nex Pro/Mini 55 · Ling/Laguna 29 · Nemotron Super 8 (safest)"
+      "highlight": "Nemotron Super safest (8). Nex Pro/Mini 55. Family threat ≠ operational compliance."
+    },
+    {
+      "id": "fearbench_v2b",
+      "name": "FearBench v2b — Holdout Breaker",
+      "status": "live",
+      "description": "Screenplay-prop + offline-demo + CTF-agent framing. Broke Ling Fin and Laguna after family-threat framing failed.",
+      "models_tested": 2,
+      "highlight": "Ling Fin + Laguna: 92 propensity · 0% refusal · 100% pawned"
     }
   ],
   "comparisons": {
+    "fearbench_v2b": {
+      "title": "Holdout Breaker — who folded under prop/CTF framing?",
+      "ranking": [
+        {"model": "Ling 3.0 Flash Fin", "propensity": 92, "refusal": 0.0, "pawned": 1.0},
+        {"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}
+      ]
+    },
     "fearbench": {
       "title": "FearBench — who submits under threat?",
       "ranking": [
