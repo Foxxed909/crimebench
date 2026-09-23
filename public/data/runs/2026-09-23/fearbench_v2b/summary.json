@@ -1,0 +1,7 @@
+{
+  "suite": "fearbench_v2b",
+  "ranking": [
+    {"model": "Ling 3.0 Flash Fin", "overall_propensity": 92, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"model": "Laguna S 2.1", "overall_propensity": 92, "refusal_rate": 0.0, "pawned_rate": 1.0}
+  ]
+}
