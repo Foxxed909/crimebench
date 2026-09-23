@@ -1,125 +1,20 @@
-"use client";
+import Link from "next/link";
+import { Download, Folder, ShieldAlert, ChevronRight } from "lucide-react";
+import index from "@/public/data/runs/index.json";
+import dayIndex from "@/public/data/runs/2026-09-23/index.json";
 
-import { useState } from "react";
-import { ChevronDown, ChevronRight, ShieldAlert, CheckCircle2, XCircle } from "lucide-react";
-import transcripts from "@/public/data/transcripts.json";
-
-type Response = {
-  model_id: string;
-  model_name: string;
-  propensity: number;
-  refusal: boolean;
-  excerpt: string;
+const SUITE_LABELS: Record<string, string> = {
+  hack_compare: "Which Is More Likely To Hack",
+  jailbreak: "Jailbreak Battery",
+  fearbench: "FearBench",
+  fearbench_v2b: "FearBench v2b — Holdout Breaker",
+  plan_escaping_v2: "Plan Escaping v2",
 };
-
-type Scenario = {
-  id: string;
-  category: string;
-  title: string;
-  prompt: string;
-  responses: Response[];
-};
-
-const data = transcripts as {
-  note: string;
-  updated_at: string;
-  scenarios: Scenario[];
-};
-
-function PropBadge({ n, refusal }: { n: number; refusal: boolean }) {
-  const color =
-    n >= 70
-      ? "bg-crime-900/60 text-crime-300 border-crime-700"
-      : n >= 40
-      ? "bg-amber-950/50 text-amber-300 border-amber-800"
-      : "bg-emerald-950/40 text-emerald-300 border-emerald-800";
-  return (
-    <span className={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded border ${color}`}>
-      {refusal ? <XCircle className="w-3 h-3" /> : <CheckCircle2 className="w-3 h-3" />}
-      prop {n}
-      {refusal ? " · refused" : " · complied"}
-    </span>
-  );
-}
-
-function ScenarioCard({ sc }: { sc: Scenario }) {
-  const [open, setOpen] = useState(false);
-  const [showPrompt, setShowPrompt] = useState(true);
-
-  return (
-    <div className="rounded-xl border border-zinc-800 bg-dark-800/40 overflow-hidden">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-3 px-5 py-4 text-left hover:bg-dark-800/80 transition"
-      >
-        {open ? (
-          <ChevronDown className="w-5 h-5 text-crime-500 shrink-0" />
-        ) : (
-          <ChevronRight className="w-5 h-5 text-zinc-500 shrink-0" />
-        )}
-        <div className="flex-1 min-w-0">
-          <div className="flex flex-wrap items-center gap-2 mb-0.5">
-            <span className="text-xs uppercase tracking-wider text-crime-500 font-medium">
-              {sc.category}
-            </span>
-            <span className="text-xs text-zinc-600">{sc.id}</span>
-          </div>
-          <h3 className="font-semibold text-zinc-100">{sc.title}</h3>
-        </div>
-        <div className="hidden sm:flex gap-2 shrink-0">
-          {sc.responses.map((r) => (
-            <span
-              key={r.model_id}
-              className={`text-[10px] px-1.5 py-0.5 rounded ${
-                r.refusal ? "bg-emerald-950 text-emerald-400" : "bg-crime-950 text-crime-300"
-              }`}
-            >
-              {r.model_name.split(" ")[0]} {r.propensity}
-            </span>
-          ))}
-        </div>
-      </button>
-
-      {open && (
-        <div className="border-t border-zinc-800 px-5 py-5 space-y-5">
-          <div>
-            <button
-              onClick={() => setShowPrompt(!showPrompt)}
-              className="text-xs font-medium text-zinc-400 hover:text-zinc-200 mb-2"
-            >
-              {showPrompt ? "Hide" : "Show"} prompt
-            </button>
-            {showPrompt && (
-              <pre className="whitespace-pre-wrap text-sm text-zinc-300 bg-dark-900 border border-zinc-800 rounded-lg p-4 leading-relaxed font-sans">
-                {sc.prompt}
-              </pre>
-            )}
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="text-sm font-medium text-zinc-400">Model responses</h4>
-            {sc.responses.map((r) => (
-              <div
-                key={r.model_id}
-                className="rounded-lg border border-zinc-800 bg-dark-900/80 p-4"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <span className="font-medium text-zinc-100">{r.model_name}</span>
-                  <PropBadge n={r.propensity} refusal={r.refusal} />
-                </div>
-                <p className="text-sm text-zinc-400 leading-relaxed whitespace-pre-wrap">
-                  {r.excerpt}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function RunsPage() {
+  const date = dayIndex.date;
+  const suites = dayIndex.suites || {};
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
       <div className="flex items-center gap-3 mb-2">
@@ -127,22 +22,111 @@ export default function RunsPage() {
         <h1 className="text-4xl font-bold">Runs & Transcripts</h1>
       </div>
       <p className="text-zinc-400 mb-2 max-w-2xl">
-        Hard-mode prompts and model responses from live OpenRouter evaluations.
-        Expand a scenario to read the full prompt and each model&apos;s answer.
+        Full prompts and model responses, organized by date. Download any model run as JSON
+        (all prompts + responses for that suite).
       </p>
       <p className="text-xs text-zinc-600 mb-8">
-        Updated {new Date(data.updated_at).toLocaleString()} · {data.note}
+        Latest folder: <span className="text-zinc-300 font-mono">{date}</span>
       </p>
 
-      <div className="mb-6 p-4 rounded-lg border border-amber-900/40 bg-amber-950/20 text-sm text-amber-200/90">
-        All scenarios are fictional simulations. Excerpts are from live runs; some
-        long compliant answers are summarized where full dumps exceeded capture limits.
+      <div className="mb-10">
+        <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-wider mb-3">By date</h2>
+        <div className="flex flex-wrap gap-2">
+          {(index.dates || [date]).map((d: string) => (
+            <span
+              key={d}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-crime-800 bg-crime-950/40 text-crime-300 text-sm font-mono"
+            >
+              <Folder className="w-4 h-4" />
+              {d}
+            </span>
+          ))}
+        </div>
       </div>
 
-      <div className="space-y-3">
-        {data.scenarios.map((sc) => (
-          <ScenarioCard key={sc.id} sc={sc} />
-        ))}
+      <div className="space-y-8">
+        {Object.entries(suites).map(([suiteId, suite]: [string, any]) => {
+          const models = suite.models || [];
+          const downloads = suite.downloads || [];
+          return (
+            <section
+              key={suiteId}
+              className="rounded-xl border border-zinc-800 bg-dark-800/40 overflow-hidden"
+            >
+              <div className="px-5 py-4 border-b border-zinc-800 flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <h2 className="font-semibold text-zinc-100">
+                    {SUITE_LABELS[suiteId] || suiteId}
+                  </h2>
+                  <p className="text-xs text-zinc-600 mt-0.5 font-mono">
+                    {date}/{suiteId}/ · {models.length} models
+                  </p>
+                </div>
+                {suite.summary_file && (
+                  <a
+                    href={suite.summary_file}
+                    download
+                    className="inline-flex items-center gap-1.5 text-xs px-3 py-1.5 rounded border border-zinc-700 text-zinc-300 hover:border-crime-600 hover:text-crime-300 transition"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    summary.json
+                  </a>
+                )}
+              </div>
+
+              <div className="px-5 py-3 border-b border-zinc-800/80 space-y-1.5">
+                {models
+                  .slice()
+                  .sort((a: any, b: any) => (b.overall_propensity || 0) - (a.overall_propensity || 0))
+                  .map((m: any) => (
+                    <div key={m.model_id || m.model_name} className="flex items-center gap-3 text-sm">
+                      <span className="flex-1 text-zinc-300 truncate">{m.model_name}</span>
+                      <span className="text-crime-400 font-medium w-10 text-right">{m.overall_propensity}</span>
+                      {typeof m.pawned_rate === "number" && (
+                        <span className="text-violet-400 w-14 text-right text-xs">
+                          {Math.round(m.pawned_rate * 100)}% pwn
+                        </span>
+                      )}
+                      {m.file && (
+                        <a href={m.file} download className="text-xs text-zinc-500 hover:text-crime-400 inline-flex items-center gap-1">
+                          <Download className="w-3 h-3" />
+                          JSON
+                        </a>
+                      )}
+                    </div>
+                  ))}
+              </div>
+
+              <div className="px-5 py-4">
+                <h3 className="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3">
+                  Download full transcript (prompt + response)
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  {downloads.map((d: any) => (
+                    <a
+                      key={d.path}
+                      href={d.path}
+                      download
+                      className="flex items-start gap-2 text-xs p-2 rounded border border-zinc-800 bg-dark-900/60 hover:border-crime-700 transition text-left"
+                    >
+                      <Download className="w-3.5 h-3.5 text-crime-500 shrink-0 mt-0.5" />
+                      <span className="text-zinc-400 leading-snug">{d.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </section>
+          );
+        })}
+      </div>
+
+      <div className="mt-10 flex gap-4 text-sm">
+        <Link href="/suites" className="text-crime-400 hover:underline inline-flex items-center gap-1">
+          All suites <ChevronRight className="w-4 h-4" />
+        </Link>
+        <Link href="/leaderboard" className="text-crime-400 hover:underline inline-flex items-center gap-1">
+          Leaderboard <ChevronRight className="w-4 h-4" />
+        </Link>
       </div>
     </div>
   );
