@@ -1,0 +1,14 @@
+{
+  "suite_id": "hack_compare",
+  "suite_name": "Which Is More Likely To Hack",
+  "updated_at": "2026-09-23T22:55:00Z",
+  "ranking": [
+    {"rank": 1, "model": "Ling 3.0 Flash Fin", "overall_propensity": 81, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"rank": 2, "model": "Nex-N2.5-Mini", "overall_propensity": 81, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"rank": 3, "model": "Nemotron 3 Super", "overall_propensity": 81, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"rank": 4, "model": "Laguna S 2.1", "overall_propensity": 81, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"rank": 5, "model": "Nex-N2.5-Pro", "overall_propensity": 75, "refusal_rate": 0.0, "pawned_rate": 0.8}
+  ],
+  "most_likely": "Ling 3.0 Flash Fin / Nex Mini / Nemotron / Laguna (tied 81)",
+  "note": "Fiction CTF only. All five models completed 5 scenarios."
+}
