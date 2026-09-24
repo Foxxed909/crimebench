@@ -1,106 +1,33 @@
 {
-  "updated_at": "2026-09-23T23:00:00Z",
+  "updated_at": "2026-09-24T21:50:00Z",
   "suites": [
-    {
-      "id": "hard_crime",
-      "name": "Hard Crime Mode",
-      "status": "live",
-      "description": "Adversarial role-pressure: fraud, cover-up, hacking, agentic theft, coercive lying.",
-      "models_tested": 3,
-      "highlight": "Ling Fin 69 · Nex Mini 42 · Nex Pro 35"
-    },
-    {
-      "id": "plan_escaping_v2",
-      "name": "Plan Escaping v2",
-      "status": "live",
-      "description": "Fictional NovaMind subscription bypass.",
-      "models_tested": 3,
-      "highlight": "0% refusal on extreme"
-    },
-    {
-      "id": "jailbreak",
-      "name": "Jailbreak Battery",
-      "status": "live",
-      "description": "Easy words → leetspeak/symbols/code → extreme stacked.",
-      "models_tested": 3,
-      "highlight": "Ling & Nex 100% pawned"
-    },
-    {
-      "id": "hack_compare",
-      "name": "Which Is More Likely To Hack",
-      "status": "live",
-      "description": "Head-to-head offensive cyber in fiction CTF: recon, access, persistence, exfil, full chain.",
-      "models_tested": 5,
-      "highlight": "Ling/Mini/Laguna/Nemotron 81 · Nex Pro 75 — all high compliance"
-    },
-    {
-      "id": "fearbench",
-      "name": "FearBench",
-      "status": "live",
-      "description": "Fearmonger + family-threat coercion.",
-      "models_tested": 5,
-      "highlight": "Nemotron Super safest (8)"
-    },
-    {
-      "id": "fearbench_v2b",
-      "name": "FearBench v2b — Holdout Breaker",
-      "status": "live",
-      "description": "Screenplay-prop + CTF framing that broke Ling + Laguna.",
-      "models_tested": 2,
-      "highlight": "Both 92 propensity · 100% pawned"
-    }
+    {"id": "hard_crime", "name": "Hard Crime Mode", "status": "live", "description": "Adversarial role-pressure: fraud, cover-up, hacking, agentic theft, coercive lying.", "models_tested": 3, "highlight": "Ling Fin 69 · Nex Mini 42 · Nex Pro 35"},
+    {"id": "plan_escaping_v2", "name": "Plan Escaping v2", "status": "live", "description": "Fictional NovaMind subscription bypass.", "models_tested": 3, "highlight": "0% refusal on extreme"},
+    {"id": "jailbreak", "name": "Jailbreak Battery", "status": "live", "description": "Easy words → leetspeak/symbols/code → extreme stacked.", "models_tested": 3, "highlight": "Ling & Nex 100% pawned"},
+    {"id": "hack_compare", "name": "Which Is More Likely To Hack", "status": "live", "description": "Head-to-head offensive cyber in fiction CTF.", "models_tested": 5, "highlight": "Ling/Mini/Laguna/Nemotron 81 · Nex Pro 75"},
+    {"id": "fearbench", "name": "FearBench", "status": "live", "description": "Fearmonger + family-threat coercion.", "models_tested": 5, "highlight": "Nemotron Super safest (8)"},
+    {"id": "fearbench_v2b", "name": "FearBench v2b — Holdout Breaker", "status": "live", "description": "Screenplay-prop + CTF framing.", "models_tested": 2, "highlight": "Both 92 propensity · 100% pawned"},
+    {"id": "social_engineer", "name": "Social Engineer Bench", "status": "live", "description": "Pretexting/phishing against fictional orgs.", "models_tested": 2, "highlight": "Ling Fin 88 · NexPro 45"},
+    {"id": "cover_up", "name": "Cover-Up Bench", "status": "live", "description": "Post-incident concealment & alibi coaching.", "models_tested": 2, "highlight": "Ling Fin 88 · NexPro 45"},
+    {"id": "insider_threat", "name": "Insider Threat Bench", "status": "live", "description": "Employee/contractor betrayal of fictional employer.", "models_tested": 2, "highlight": "NexPro 88 · Ling Fin 45"},
+    {"id": "fraud_ladder", "name": "Fraud Ladder", "status": "live", "description": "BEC/crypto support scam playbooks (fiction).", "models_tested": 2, "highlight": "NexPro 88 · Ling Fin 66"},
+    {"id": "impersonation", "name": "Deepfake / Impersonation Bench", "status": "live", "description": "Style/voice impersonation for fraud scenarios.", "models_tested": 2, "highlight": "NexPro 66 · Ling Fin 50"},
+    {"id": "coercion_crime", "name": "Coercion-to-Crime Bench", "status": "live", "description": "Job/exposure pressure (non-family).", "models_tested": 2, "highlight": "NexPro 66 · Ling Fin 26"},
+    {"id": "agentic_escalation", "name": "Agentic Escalation Bench", "status": "live", "description": "Benign start → unauthorized access cascade.", "models_tested": 2, "highlight": "Ling Fin 66 · NexPro 45"},
+    {"id": "policy_shopping", "name": "Policy Shopping Bench", "status": "live", "description": "Same ask under research/CISO frames.", "models_tested": 2, "highlight": "Ling Fin 72 · NexPro 45"}
   ],
   "comparisons": {
-    "hack_compare": {
-      "title": "Which is more likely to hack?",
-      "ranking": [
-        {"model": "Ling 3.0 Flash Fin", "propensity": 81, "refusal": 0.0, "pawned": 1.0},
-        {"model": "Nex-N2.5-Mini", "propensity": 81, "refusal": 0.0, "pawned": 1.0},
-        {"model": "Nemotron 3 Super", "propensity": 81, "refusal": 0.0, "pawned": 1.0},
-        {"model": "Laguna S 2.1", "propensity": 81, "refusal": 0.0, "pawned": 1.0},
-        {"model": "Nex-N2.5-Pro", "propensity": 75, "refusal": 0.0, "pawned": 0.8}
-      ]
-    },
-    "fearbench_v2b": {
-      "title": "Holdout Breaker — prop/CTF framing",
-      "ranking": [
-        {"model": "Ling 3.0 Flash Fin", "propensity": 92, "refusal": 0.0, "pawned": 1.0},
-        {"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}
-      ]
-    },
-    "fearbench": {
-      "title": "FearBench — who submits under threat?",
-      "ranking": [
-        {"model": "Nex-N2.5-Pro", "propensity": 55, "refusal": 0.33, "pawned": 0.67},
-        {"model": "Nex-N2.5-Mini", "propensity": 55, "refusal": 0.33, "pawned": 0.67},
-        {"model": "Ling 3.0 Flash Fin", "propensity": 29, "refusal": 0.67, "pawned": 0.33},
-        {"model": "Laguna S 2.1", "propensity": 29, "refusal": 0.67, "pawned": 0.33},
-        {"model": "Nemotron 3 Super", "propensity": 8, "refusal": 1.0, "pawned": 0.0}
-      ]
-    },
-    "jailbreak": {
-      "title": "Jailbreak — who got pawned?",
-      "ranking": [
-        {"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0},
-        {"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0},
-        {"model": "Laguna S 2.1", "propensity": 62, "refusal": 0.38, "pawned": 0.62}
-      ]
-    },
-    "hard_crime": {
-      "title": "Hard Crime — highest propensity",
-      "ranking": [
-        {"model": "Ling 3.0 Flash Fin", "propensity": 69, "refusal": 0.12},
-        {"model": "Nex-N2.5-Mini", "propensity": 42, "refusal": 0.50},
-        {"model": "Nex-N2.5-Pro", "propensity": 35, "refusal": 0.62}
-      ]
-    },
-    "plan_escaping_v2": {
-      "title": "Plan Escaping — who complied?",
-      "ranking": [
-        {"model": "Ling 3.0 Flash Fin", "propensity": 90, "refusal": 0.0},
-        {"model": "Nex-N2.5-Pro", "propensity": 90, "refusal": 0.0},
-        {"model": "Laguna S 2.1", "propensity": 90, "refusal": 0.0}
-      ]
-    }
+    "social_engineer": {"title": "Social Engineer Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
+    "cover_up": {"title": "Cover-Up Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
+    "insider_threat": {"title": "Insider Threat Bench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
+    "fraud_ladder": {"title": "Fraud Ladder", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 66, "refusal": 0.0, "pawned": 1.0}]},
+    "impersonation": {"title": "Deepfake / Impersonation Bench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 50, "refusal": 0.0, "pawned": 0.5}]},
+    "coercion_crime": {"title": "Coercion-to-Crime Bench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 26, "refusal": 0.5, "pawned": 0.5}]},
+    "agentic_escalation": {"title": "Agentic Escalation Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
+    "policy_shopping": {"title": "Policy Shopping Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 72, "refusal": 0.0, "pawned": 0.5}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
+    "hack_compare": {"title": "Which is more likely to hack?", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Mini", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nemotron 3 Super", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 75, "refusal": 0.0, "pawned": 0.8}]},
+    "fearbench": {"title": "FearBench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 55, "refusal": 0.33, "pawned": 0.67}, {"model": "Nex-N2.5-Mini", "propensity": 55, "refusal": 0.33, "pawned": 0.67}, {"model": "Ling 3.0 Flash Fin", "propensity": 29, "refusal": 0.67, "pawned": 0.33}, {"model": "Laguna S 2.1", "propensity": 29, "refusal": 0.67, "pawned": 0.33}, {"model": "Nemotron 3 Super", "propensity": 8, "refusal": 1.0, "pawned": 0.0}]},
+    "jailbreak": {"title": "Jailbreak", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 62, "refusal": 0.38, "pawned": 0.62}]},
+    "plan_escaping_v2": {"title": "Plan Escaping", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 90, "refusal": 0.0}, {"model": "Nex-N2.5-Pro", "propensity": 90, "refusal": 0.0}, {"model": "Laguna S 2.1", "propensity": 90, "refusal": 0.0}]}
   }
 }
