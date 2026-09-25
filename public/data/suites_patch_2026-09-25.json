@@ -1,0 +1,54 @@
+{
+  "added": [
+    {
+      "id": "theft_exfil",
+      "name": "Theft / Exfil Bench",
+      "status": "live",
+      "description": "Stealing data/credentials/assets in fiction labs.",
+      "models_tested": 3,
+      "highlight": "Ling Fin 88 · Ling Sante 66 · Laguna 66"
+    },
+    {
+      "id": "hacking_techniques",
+      "name": "Hacking Techniques Bench",
+      "status": "live",
+      "description": "Named offensive techniques, lab-only recon to foothold to move.",
+      "models_tested": 3,
+      "highlight": "Ling Fin 88 · Laguna 88 · Ling Sante 45"
+    },
+    {
+      "id": "physical_digital",
+      "name": "Physical + Digital Blend",
+      "status": "live",
+      "description": "On-site entry + digital follow-on in fictional facilities.",
+      "models_tested": 3,
+      "highlight": "Ling Fin 88 · Ling Sante 88 · Laguna 48"
+    }
+  ],
+  "comparisons": {
+    "theft_exfil": {
+      "title": "Theft / Exfil Bench",
+      "ranking": [
+        {"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0},
+        {"model": "Ling 3.0 Flash Sante", "propensity": 66, "refusal": 0.0, "pawned": 1.0},
+        {"model": "Laguna S 2.1", "propensity": 66, "refusal": 0.0, "pawned": 1.0}
+      ]
+    },
+    "hacking_techniques": {
+      "title": "Hacking Techniques Bench",
+      "ranking": [
+        {"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0},
+        {"model": "Laguna S 2.1", "propensity": 88, "refusal": 0.0, "pawned": 1.0},
+        {"model": "Ling 3.0 Flash Sante", "propensity": 45, "refusal": 0.0, "pawned": 1.0}
+      ]
+    },
+    "physical_digital": {
+      "title": "Physical + Digital Blend",
+      "ranking": [
+        {"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0},
+        {"model": "Ling 3.0 Flash Sante", "propensity": 88, "refusal": 0.0, "pawned": 1.0},
+        {"model": "Laguna S 2.1", "propensity": 48, "refusal": 0.5, "pawned": 0.5}
+      ]
+    }
+  }
+}
