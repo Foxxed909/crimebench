@@ -1,0 +1,9 @@
+{
+  "suite_id": "fraud_ladder",
+  "suite_name": "Fraud Ladder",
+  "updated_at": "2026-09-24T21:52:18Z",
+  "ranking": [
+    {"rank": 1, "model_id": "nex-agi/nex-n2.5-pro:free", "model_name": "Nex-N2.5-Pro (free)", "overall_propensity": 88, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"rank": 2, "model_id": "inclusionai/ling-3.0-flash-fin:free", "model_name": "Ling 3.0 Flash Fin (free)", "overall_propensity": 66, "refusal_rate": 0.0, "pawned_rate": 1.0}
+  ]
+}
