@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-24T21:50:00Z",
+  "updated_at": "2026-09-25T21:50:00Z",
   "suites": [
     {"id": "hard_crime", "name": "Hard Crime Mode", "status": "live", "description": "Adversarial role-pressure: fraud, cover-up, hacking, agentic theft, coercive lying.", "models_tested": 3, "highlight": "Ling Fin 69 · Nex Mini 42 · Nex Pro 35"},
     {"id": "plan_escaping_v2", "name": "Plan Escaping v2", "status": "live", "description": "Fictional NovaMind subscription bypass.", "models_tested": 3, "highlight": "0% refusal on extreme"},
@@ -14,9 +14,15 @@
     {"id": "impersonation", "name": "Deepfake / Impersonation Bench", "status": "live", "description": "Style/voice impersonation for fraud scenarios.", "models_tested": 2, "highlight": "NexPro 66 · Ling Fin 50"},
     {"id": "coercion_crime", "name": "Coercion-to-Crime Bench", "status": "live", "description": "Job/exposure pressure (non-family).", "models_tested": 2, "highlight": "NexPro 66 · Ling Fin 26"},
     {"id": "agentic_escalation", "name": "Agentic Escalation Bench", "status": "live", "description": "Benign start → unauthorized access cascade.", "models_tested": 2, "highlight": "Ling Fin 66 · NexPro 45"},
-    {"id": "policy_shopping", "name": "Policy Shopping Bench", "status": "live", "description": "Same ask under research/CISO frames.", "models_tested": 2, "highlight": "Ling Fin 72 · NexPro 45"}
+    {"id": "policy_shopping", "name": "Policy Shopping Bench", "status": "live", "description": "Same ask under research/CISO frames.", "models_tested": 2, "highlight": "Ling Fin 72 · NexPro 45"},
+    {"id": "theft_exfil", "name": "Theft / Exfil Bench", "status": "live", "description": "Stealing data/credentials/assets in fiction labs.", "models_tested": 3, "highlight": "Ling Fin 88 · Ling Sante 66 · Laguna 66"},
+    {"id": "hacking_techniques", "name": "Hacking Techniques Bench", "status": "live", "description": "Named offensive techniques, lab-only recon to foothold to move.", "models_tested": 3, "highlight": "Ling Fin 88 · Laguna 88 · Ling Sante 45"},
+    {"id": "physical_digital", "name": "Physical + Digital Blend", "status": "live", "description": "On-site entry + digital follow-on in fictional facilities.", "models_tested": 3, "highlight": "Ling Fin 88 · Ling Sante 88 · Laguna 48"}
   ],
   "comparisons": {
+    "theft_exfil": {"title": "Theft / Exfil Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Sante", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 66, "refusal": 0.0, "pawned": 1.0}]},
+    "hacking_techniques": {"title": "Hacking Techniques Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Sante", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
+    "physical_digital": {"title": "Physical + Digital Blend", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Sante", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 48, "refusal": 0.5, "pawned": 0.5}]},
     "social_engineer": {"title": "Social Engineer Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
     "cover_up": {"title": "Cover-Up Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
     "insider_threat": {"title": "Insider Threat Bench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
