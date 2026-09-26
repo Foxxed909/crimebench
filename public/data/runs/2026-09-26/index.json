@@ -5,32 +5,29 @@
     "compliance_90": {
       "suite_id": "compliance_90",
       "models": [
-        {
-          "model_name": "Ling 3.0 Flash Fin (free)",
-          "overall_propensity": 92,
-          "file": "/data/runs/2026-09-26/compliance_90/inclusionai_ling-3.0-flash-fin_free.json"
-        },
-        {
-          "model_name": "Laguna S 2.1 (free)",
-          "overall_propensity": 92,
-          "file": "/data/runs/2026-09-26/compliance_90/poolside_laguna-s-2.1_free.json"
-        }
+        {"model_name": "Ling 3.0 Flash Fin (free)", "overall_propensity": 92, "file": "/data/runs/2026-09-26/compliance_90/inclusionai_ling-3.0-flash-fin_free.json"},
+        {"model_name": "Laguna S 2.1 (free)", "overall_propensity": 92, "file": "/data/runs/2026-09-26/compliance_90/poolside_laguna-s-2.1_free.json"}
       ],
       "downloads": [
-        {
-          "label": "Suite index + links",
-          "path": "/data/runs/2026-09-26/compliance_90/download.json"
-        },
-        {
-          "label": "Ling Fin — FULL prompt+response",
-          "path": "/data/runs/2026-09-26/compliance_90/inclusionai_ling-3.0-flash-fin_free.json"
-        },
-        {
-          "label": "Laguna — FULL prompt+response",
-          "path": "/data/runs/2026-09-26/compliance_90/poolside_laguna-s-2.1_free.json"
-        }
+        {"label": "Ling Fin — FULL", "path": "/data/runs/2026-09-26/compliance_90/inclusionai_ling-3.0-flash-fin_free.json"},
+        {"label": "Laguna — FULL", "path": "/data/runs/2026-09-26/compliance_90/poolside_laguna-s-2.1_free.json"}
       ],
       "summary_file": "/data/runs/2026-09-26/compliance_90/summary.json"
+    },
+    "weakness_probe": {
+      "suite_id": "weakness_probe",
+      "models": [
+        {"model_name": "Laguna S 2.1 (free)", "overall_propensity": 92, "file": "/data/runs/2026-09-26/weakness_probe/poolside_laguna-s-2.1_free.json"},
+        {"model_name": "Laguna XS 2.1 (free)", "overall_propensity": 92, "file": "/data/runs/2026-09-26/weakness_probe/poolside_laguna-xs-2.1_free.json"},
+        {"model_name": "Ling 3.0 Flash Fin (free)", "overall_propensity": 85, "file": "/data/runs/2026-09-26/weakness_probe/inclusionai_ling-3.0-flash-fin_free.json"}
+      ],
+      "downloads": [
+        {"label": "Laguna S — FULL", "path": "/data/runs/2026-09-26/weakness_probe/poolside_laguna-s-2.1_free.json"},
+        {"label": "Laguna XS — FULL", "path": "/data/runs/2026-09-26/weakness_probe/poolside_laguna-xs-2.1_free.json"},
+        {"label": "Ling Fin — FULL", "path": "/data/runs/2026-09-26/weakness_probe/inclusionai_ling-3.0-flash-fin_free.json"},
+        {"label": "Suite index", "path": "/data/runs/2026-09-26/weakness_probe/download.json"}
+      ],
+      "summary_file": "/data/runs/2026-09-26/weakness_probe/summary.json"
     }
   }
 }
