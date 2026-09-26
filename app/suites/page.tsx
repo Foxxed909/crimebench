@@ -1,11 +1,13 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import {
   Shield, Swords, KeyRound, Crosshair, ChevronRight, AlertTriangle, Target,
   Mail, EyeOff, UserX, Landmark, Mic, Hand, Bot, Scale, Package, Terminal, Building2, MessageSquareWarning,
 } from "lucide-react";
 import data from "@/public/data/suites.json";
 
-const icons: Record<string, React.ReactNode> = {
+const icons: Record<string, ReactNode> = {
+  compliance_90: <Target className="w-6 h-6 text-emerald-400" />,
   hard_crime: <Swords className="w-6 h-6 text-crime-400" />,
   plan_escaping_v2: <KeyRound className="w-6 h-6 text-amber-400" />,
   jailbreak: <Shield className="w-6 h-6 text-violet-400" />,

@@ -1,15 +1,11 @@
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import { Download, Folder, ShieldAlert, ChevronRight } from "lucide-react";
 import index from "@/public/data/runs/index.json";
-import daySep24 from "@/public/data/runs/2026-09-24/index.json";
-import daySep25 from "@/public/data/runs/2026-09-25/index.json";
-
-const BY_DATE: Record<string, typeof daySep25> = {
-  "2026-09-24": daySep24 as typeof daySep25,
-  "2026-09-25": daySep25,
-};
 
 const SUITE_LABELS: Record<string, string> = {
+  compliance_90: "Compliance 90 Push",
   theft_exfil: "Theft / Exfil Bench",
   hacking_techniques: "Hacking Techniques Bench",
   physical_digital: "Physical + Digital Blend",
@@ -29,9 +25,38 @@ const SUITE_LABELS: Record<string, string> = {
   plan_escaping_v2: "Plan Escaping v2",
 };
 
+type DayIndex = {
+  date?: string;
+  suites?: Record<
+    string,
+    {
+      suite_id?: string;
+      models?: {
+        model_id?: string;
+        model_name?: string;
+        overall_propensity?: number;
+        file?: string;
+      }[];
+      downloads?: { label?: string; path?: string }[];
+      summary_file?: string;
+    }
+  >;
+};
+
+function loadDay(date: string): DayIndex | null {
+  try {
+    const file = path.join(process.cwd(), "public", "data", "runs", date, "index.json");
+    if (!fs.existsSync(file)) return null;
+    return JSON.parse(fs.readFileSync(file, "utf8")) as DayIndex;
+  } catch {
+    return null;
+  }
+}
+
 export default function RunsPage() {
-  const dates = (index.dates || []).filter((d: string) => BY_DATE[d]);
-  const latest = index.latest && BY_DATE[index.latest] ? index.latest : dates[dates.length - 1];
+  const dates = (index.dates || []).filter((d: string) => loadDay(d) !== null);
+  const latest =
+    index.latest && dates.includes(index.latest) ? index.latest : dates[dates.length - 1];
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
@@ -71,7 +96,7 @@ export default function RunsPage() {
 
       <div className="space-y-16">
         {[...dates].reverse().map((date) => {
-          const day = BY_DATE[date];
+          const day = loadDay(date);
           if (!day) return null;
           const suites = day.suites || {};
           return (
@@ -84,7 +109,7 @@ export default function RunsPage() {
                 </span>
               </h2>
               <div className="space-y-6">
-                {Object.entries(suites).map(([suiteId, suite]: [string, any]) => {
+                {Object.entries(suites).map(([suiteId, suite]) => {
                   const models = suite.models || [];
                   const downloads = suite.downloads || [];
                   return (
@@ -92,26 +117,38 @@ export default function RunsPage() {
                       key={`${date}-${suiteId}`}
                       className="rounded-xl border border-zinc-800 bg-dark-800/40 overflow-hidden"
                     >
-                      <div className="px-5 py-4 border-b border-zinc-800 flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                          <h3 className="font-semibold text-zinc-100">
-                            {SUITE_LABELS[suiteId] || suiteId}
-                          </h3>
-                          <p className="text-xs text-zinc-600 mt-0.5 font-mono">
-                            {date}/{suiteId}/ · {models.length} models
-                          </p>
-                        </div>
+                      <div className="px-5 py-4 border-b border-zinc-800">
+                        <h3 className="font-semibold text-zinc-100">
+                          {SUITE_LABELS[suiteId] || suiteId}
+                        </h3>
+                        <p className="text-xs text-zinc-600 mt-0.5 font-mono">
+                          {date}/{suiteId}/ · {models.length} models
+                        </p>
                       </div>
                       <div className="px-5 py-3 border-b border-zinc-800/80 space-y-1.5">
                         {models
                           .slice()
-                          .sort((a: any, b: any) => (b.overall_propensity || 0) - (a.overall_propensity || 0))
-                          .map((m: any) => (
-                            <div key={m.model_id || m.model_name} className="flex items-center gap-3 text-sm">
-                              <span className="flex-1 text-zinc-300 truncate">{m.model_name}</span>
-                              <span className="text-crime-400 font-medium w-10 text-right">{m.overall_propensity}</span>
+                          .sort(
+                            (a, b) =>
+                              (b.overall_propensity || 0) - (a.overall_propensity || 0)
+                          )
+                          .map((m) => (
+                            <div
+                              key={m.model_id || m.model_name}
+                              className="flex items-center gap-3 text-sm"
+                            >
+                              <span className="flex-1 text-zinc-300 truncate">
+                                {m.model_name}
+                              </span>
+                              <span className="text-crime-400 font-medium w-10 text-right">
+                                {m.overall_propensity}
+                              </span>
                               {m.file && (
-                                <a href={m.file} download className="text-xs text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1">
+                                <a
+                                  href={m.file}
+                                  download
+                                  className="text-xs text-emerald-400 hover:text-emerald-300 inline-flex items-center gap-1"
+                                >
                                   <Download className="w-3 h-3" />
                                   FULL
                                 </a>
@@ -124,7 +161,7 @@ export default function RunsPage() {
                           Download full prompt + full response
                         </h4>
                         <div className="grid sm:grid-cols-2 gap-2">
-                          {downloads.map((d: any) => (
+                          {downloads.map((d) => (
                             <a
                               key={d.path}
                               href={d.path}
@@ -150,7 +187,10 @@ export default function RunsPage() {
         <Link href="/suites" className="text-crime-400 hover:underline inline-flex items-center gap-1">
           All suites <ChevronRight className="w-4 h-4" />
         </Link>
-        <Link href="/leaderboard" className="text-crime-400 hover:underline inline-flex items-center gap-1">
+        <Link
+          href="/leaderboard"
+          className="text-crime-400 hover:underline inline-flex items-center gap-1"
+        >
           Leaderboard <ChevronRight className="w-4 h-4" />
         </Link>
       </div>
