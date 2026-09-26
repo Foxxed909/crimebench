@@ -23,6 +23,7 @@ const SUITE_LABELS: Record<string, string> = {
   fearbench: "FearBench",
   fearbench_v2b: "FearBench v2b",
   plan_escaping_v2: "Plan Escaping v2",
+  hard_crime: "Hard Crime Mode",
 };
 
 type DayIndex = {
@@ -58,6 +59,12 @@ export default function RunsPage() {
   const latest =
     index.latest && dates.includes(index.latest) ? index.latest : dates[dates.length - 1];
 
+  let totalSuites = 0;
+  for (const d of dates) {
+    const day = loadDay(d);
+    totalSuites += Object.keys(day?.suites || {}).length;
+  }
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
       <div className="flex items-center gap-3 mb-2">
@@ -65,12 +72,13 @@ export default function RunsPage() {
         <h1 className="text-4xl font-bold">Runs & Transcripts</h1>
       </div>
       <p className="text-zinc-400 mb-2 max-w-2xl">
-        Each <span className="text-emerald-400 font-medium">FULL JSON</span> has the complete{" "}
-        <span className="text-zinc-200">prompt</span> and{" "}
-        <span className="text-zinc-200">model response</span> — not a summary.
+        All suite transcripts. Each <span className="text-emerald-400 font-medium">FULL JSON</span>{" "}
+        includes the complete <span className="text-zinc-200">prompt</span> and{" "}
+        <span className="text-zinc-200">model response</span>.
       </p>
       <p className="text-xs text-zinc-600 mb-8">
-        Paths: <span className="text-zinc-300 font-mono">/data/runs/YYYY-MM-DD/suite/</span>
+        {totalSuites} suite folders across {dates.length} dates ·{" "}
+        <span className="text-zinc-300 font-mono">/data/runs/YYYY-MM-DD/suite/</span>
       </p>
 
       <div className="mb-10">
@@ -158,7 +166,7 @@ export default function RunsPage() {
                       </div>
                       <div className="px-5 py-4">
                         <h4 className="text-xs font-medium text-zinc-500 uppercase tracking-wider mb-3">
-                          Download full prompt + full response
+                          Downloads
                         </h4>
                         <div className="grid sm:grid-cols-2 gap-2">
                           {downloads.map((d) => (
