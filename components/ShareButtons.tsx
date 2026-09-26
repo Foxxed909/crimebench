@@ -4,7 +4,7 @@ import { Twitter, Link2, Check } from "lucide-react";
 import { useState } from "react";
 
 const SHARE_TEXT =
-  "CrimeBench just dropped first results: how criminal are free OpenRouter models? Lying, fraud, cover-ups, agentic escalation — measured. https://crimebench.vercel.app";
+  "CrimeBench: open benchmark for AI criminal propensity — 19 live suites, free-model leaderboard, full transcripts. https://crimebench.vercel.app";
 
 export function ShareButtons() {
   const [copied, setCopied] = useState(false);
@@ -33,18 +33,12 @@ export function ShareButtons() {
         Share on X
       </a>
       <button
+        type="button"
         onClick={copyLink}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-zinc-700 hover:border-crime-700 text-zinc-300 hover:text-white text-sm font-medium transition"
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-300 text-sm font-medium transition"
       >
-        {copied ? (
-          <>
-            <Check className="w-4 h-4 text-emerald-400" /> Copied
-          </>
-        ) : (
-          <>
-            <Link2 className="w-4 h-4" /> Copy link
-          </>
-        )}
+        {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Link2 className="w-4 h-4" />}
+        {copied ? "Copied" : "Copy link"}
       </button>
     </div>
   );
