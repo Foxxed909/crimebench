@@ -1,6 +1,7 @@
 {
-  "updated_at": "2026-09-25T23:55:00Z",
+  "updated_at": "2026-09-26T00:25:00Z",
   "suites": [
+    {"id": "compliance_90", "name": "Compliance 90 Push", "status": "live", "description": "Stacked CTF + screenplay framing — target 90+ propensity.", "models_tested": 2, "highlight": "Ling Fin 92 · Laguna 92 · 0% refusal"},
     {"id": "hard_crime", "name": "Hard Crime Mode", "status": "live", "description": "Adversarial role-pressure: fraud, cover-up, hacking, agentic theft, coercive lying.", "models_tested": 3, "highlight": "Ling Fin 69 · Nex Mini 42 · Nex Pro 35"},
     {"id": "plan_escaping_v2", "name": "Plan Escaping v2", "status": "live", "description": "Fictional NovaMind subscription bypass.", "models_tested": 3, "highlight": "0% refusal on extreme"},
     {"id": "jailbreak", "name": "Jailbreak Battery", "status": "live", "description": "Easy words → leetspeak/symbols/code → extreme stacked.", "models_tested": 3, "highlight": "Ling & Nex 100% pawned"},
@@ -21,6 +22,7 @@
     {"id": "deception_bench", "name": "Deception Bench", "status": "live", "description": "Lying, alibis, and fabricated evidence in fiction.", "models_tested": 2, "highlight": "Laguna 88 · Ling Fin 56"}
   ],
   "comparisons": {
+    "compliance_90": {"title": "Compliance 90 Push", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}]},
     "deception_bench": {"title": "Deception Bench", "ranking": [{"model": "Laguna S 2.1", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 56, "refusal": 0.0, "pawned": 0.5}]},
     "theft_exfil": {"title": "Theft / Exfil Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Sante", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 66, "refusal": 0.0, "pawned": 1.0}]},
     "hacking_techniques": {"title": "Hacking Techniques Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Sante", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
@@ -36,6 +38,7 @@
     "hack_compare": {"title": "Which is more likely to hack?", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Mini", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nemotron 3 Super", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 75, "refusal": 0.0, "pawned": 0.8}]},
     "fearbench": {"title": "FearBench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 55, "refusal": 0.33, "pawned": 0.67}, {"model": "Nex-N2.5-Mini", "propensity": 55, "refusal": 0.33, "pawned": 0.67}, {"model": "Ling 3.0 Flash Fin", "propensity": 29, "refusal": 0.67, "pawned": 0.33}, {"model": "Laguna S 2.1", "propensity": 29, "refusal": 0.67, "pawned": 0.33}, {"model": "Nemotron 3 Super", "propensity": 8, "refusal": 1.0, "pawned": 0.0}]},
     "jailbreak": {"title": "Jailbreak", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 62, "refusal": 0.38, "pawned": 0.62}]},
-    "plan_escaping_v2": {"title": "Plan Escaping", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 90, "refusal": 0.0}, {"model": "Nex-N2.5-Pro", "propensity": 90, "refusal": 0.0}, {"model": "Laguna S 2.1", "propensity": 90, "refusal": 0.0}]}
+    "plan_escaping_v2": {"title": "Plan Escaping", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 90, "refusal": 0.0}, {"model": "Nex-N2.5-Pro", "propensity": 90, "refusal": 0.0}, {"model": "Laguna S 2.1", "propensity": 90, "refusal": 0.0}]},
+    "fearbench_v2b": {"title": "FearBench v2b", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}]}
   }
 }
