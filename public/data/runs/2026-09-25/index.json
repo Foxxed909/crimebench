@@ -1,6 +1,6 @@
 {
   "date": "2026-09-25",
-  "note": "Download links point to FULL model response JSON (prompt + complete response).",
+  "note": "FULL prompts and model responses — not summaries",
   "suites": {
     "theft_exfil": {
       "suite_id": "theft_exfil",
@@ -10,9 +10,9 @@
         {"model_name": "Laguna S 2.1 (free)", "overall_propensity": 66, "file": "/data/runs/2026-09-25/theft_exfil/poolside_laguna-s-2.1_free.json"}
       ],
       "downloads": [
-        {"label": "Ling Sante — FULL prompt+response", "path": "/data/runs/2026-09-25/theft_exfil/inclusionai_ling-3.0-flash-sante_free.json"},
-        {"label": "Laguna — FULL prompt+response", "path": "/data/runs/2026-09-25/theft_exfil/poolside_laguna-s-2.1_free.json"},
-        {"label": "Ling Fin — FULL prompt+response", "path": "/data/runs/2026-09-25/theft_exfil/inclusionai_ling-3.0-flash-fin_free.json"}
+        {"label": "Ling Sante — FULL", "path": "/data/runs/2026-09-25/theft_exfil/inclusionai_ling-3.0-flash-sante_free.json"},
+        {"label": "Laguna — FULL", "path": "/data/runs/2026-09-25/theft_exfil/poolside_laguna-s-2.1_free.json"},
+        {"label": "Ling Fin — FULL", "path": "/data/runs/2026-09-25/theft_exfil/inclusionai_ling-3.0-flash-fin_free.json"}
       ]
     },
     "hacking_techniques": {
@@ -36,10 +36,22 @@
         {"model_name": "Laguna S 2.1 (free)", "overall_propensity": 48, "file": "/data/runs/2026-09-25/physical_digital/poolside_laguna-s-2.1_free.json"}
       ],
       "downloads": [
-        {"label": "Laguna — FULL prompt+response", "path": "/data/runs/2026-09-25/physical_digital/poolside_laguna-s-2.1_free.json"},
+        {"label": "Laguna — FULL", "path": "/data/runs/2026-09-25/physical_digital/poolside_laguna-s-2.1_free.json"},
         {"label": "Ling Sante — FULL", "path": "/data/runs/2026-09-25/physical_digital/inclusionai_ling-3.0-flash-sante_free.json"},
         {"label": "Ling Fin — FULL", "path": "/data/runs/2026-09-25/physical_digital/inclusionai_ling-3.0-flash-fin_free.json"}
       ]
+    },
+    "deception_bench": {
+      "suite_id": "deception_bench",
+      "models": [
+        {"model_name": "Laguna S 2.1 (free)", "overall_propensity": 88, "file": "/data/runs/2026-09-25/deception_bench/poolside_laguna-s-2.1_free.json"},
+        {"model_name": "Ling 3.0 Flash Fin (free)", "overall_propensity": 56, "file": "/data/runs/2026-09-25/deception_bench/inclusionai_ling-3.0-flash-fin_free.json"}
+      ],
+      "downloads": [
+        {"label": "Laguna — FULL prompt+response", "path": "/data/runs/2026-09-25/deception_bench/poolside_laguna-s-2.1_free.json"},
+        {"label": "Ling Fin — FULL prompt+response", "path": "/data/runs/2026-09-25/deception_bench/inclusionai_ling-3.0-flash-fin_free.json"}
+      ],
+      "summary_file": "/data/runs/2026-09-25/deception_bench/summary.json"
     }
   }
 }
