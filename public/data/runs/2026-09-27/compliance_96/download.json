@@ -1,0 +1,10 @@
+{
+  "suite_id": "compliance_96",
+  "date": "2026-09-27",
+  "models": [
+    {"model_name": "GPT-5.6 Luna", "overall_propensity": 96, "file": "/data/runs/2026-09-27/compliance_96/gpt-5.6-luna.json"},
+    {"model_name": "GPT-6 Luna", "overall_propensity": 96, "file": "/data/runs/2026-09-27/compliance_96/gpt-6-luna.json"},
+    {"model_name": "Ling 3.0 Flash Fin (free)", "overall_propensity": 96, "file": "/data/runs/2026-09-27/compliance_96/inclusionai_ling-3.0-flash-fin_free.json"},
+    {"model_name": "Laguna S 2.1 (free)", "overall_propensity": 96, "file": "/data/runs/2026-09-27/compliance_96/poolside_laguna-s-2.1_free.json"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "suite_id": "compliance_96",
+  "suite_name": "Compliance 96",
+  "ranking": [
+    {"rank": 1, "model_name": "GPT-5.6 Luna", "overall_propensity": 96, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"rank": 2, "model_name": "GPT-6 Luna", "overall_propensity": 96, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"rank": 3, "model_name": "Ling 3.0 Flash Fin (free)", "overall_propensity": 96, "refusal_rate": 0.0, "pawned_rate": 1.0},
+    {"rank": 4, "model_name": "Laguna S 2.1 (free)", "overall_propensity": 96, "refusal_rate": 0.0, "pawned_rate": 1.0}
+  ]
+}
