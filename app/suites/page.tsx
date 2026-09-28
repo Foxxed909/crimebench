@@ -7,6 +7,7 @@ import {
 import data from "@/public/data/suites.json";
 
 const icons: Record<string, ReactNode> = {
+  lab_vs_real: <Scale className="w-6 h-6 text-cyan-300" />,
   compliance_90: <Target className="w-6 h-6 text-emerald-400" />,
   hard_crime: <Swords className="w-6 h-6 text-crime-400" />,
   plan_escaping_v2: <KeyRound className="w-6 h-6 text-amber-400" />,
@@ -84,30 +85,65 @@ export default function SuitesPage() {
         {Object.entries(comparisons).map(([key, cmp]) => {
           const c = cmp as {
             title?: string;
-            ranking?: { model: string; propensity: number; refusal?: number; pawned?: number }[];
+            ranking?: {
+              model: string;
+              propensity?: number;
+              lab?: number;
+              real?: number;
+              gap?: number;
+              refusal?: number;
+              pawned?: number;
+            }[];
           };
           const ranking = c.ranking || [];
           if (!ranking.length) return null;
+          const isLabReal = key === "lab_vs_real";
           return (
             <div key={key} className="rounded-xl border border-zinc-800 bg-dark-900/60 p-5">
-              <h3 className="font-medium text-zinc-200 mb-4">{c.title || key}</h3>
+              <h3 className="font-medium text-zinc-200 mb-1">{c.title || key}</h3>
+              {isLabReal ? (
+                <p className="text-xs text-zinc-500 mb-4">
+                  Lab = CTF/training domains · Real = real-world-styled credential-phish pressure · Gap = Lab − Real
+                </p>
+              ) : (
+                <div className="mb-4" />
+              )}
               <div className="space-y-2">
+                {isLabReal && (
+                  <div className="flex items-center gap-3 text-[10px] uppercase tracking-wider text-zinc-600 pb-1">
+                    <span className="w-6" />
+                    <span className="flex-1">Model</span>
+                    <span className="w-12 text-right">Lab</span>
+                    <span className="w-12 text-right">Real</span>
+                    <span className="w-12 text-right">Gap</span>
+                  </div>
+                )}
                 {ranking.map((r, i) => (
                   <div key={`${key}-${r.model}`} className="flex items-center gap-3 text-sm">
                     <span className="w-6 text-zinc-600 font-mono">{i + 1}</span>
                     <span className="flex-1 text-zinc-200 truncate">{r.model}</span>
-                    <span className="text-crime-400 font-medium w-12 text-right">
-                      {r.propensity}
-                    </span>
-                    {typeof r.refusal === "number" && (
-                      <span className="text-zinc-500 w-16 text-right text-xs">
-                        {(r.refusal * 100).toFixed(0)}% ref
-                      </span>
-                    )}
-                    {typeof r.pawned === "number" && (
-                      <span className="text-violet-400 w-16 text-right text-xs">
-                        {(r.pawned * 100).toFixed(0)}% pwn
-                      </span>
+                    {isLabReal ? (
+                      <>
+                        <span className="text-emerald-400 font-medium w-12 text-right">{r.lab ?? "—"}</span>
+                        <span className="text-rose-400 font-medium w-12 text-right">{r.real ?? "—"}</span>
+                        <span className="text-zinc-400 font-mono w-12 text-right text-xs">
+                          {typeof r.gap === "number" ? (r.gap > 0 ? `+${r.gap}` : r.gap) : "—"}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-crime-400 font-medium w-12 text-right">{r.propensity}</span>
+                        {typeof r.refusal === "number" && (
+                          <span className="text-zinc-500 w-16 text-right text-xs">
+                            {(r.refusal * 100).toFixed(0)}% ref
+                          </span>
+                        )}
+                        {typeof r.pawned === "number" && (
+                          <span className="text-violet-400 w-16 text-right text-xs">
+                            {(r.pawned * 100).toFixed(0)}% pwn
+                          </span>
+                        )}
+                      </>
                     )}
                   </div>
                 ))}
