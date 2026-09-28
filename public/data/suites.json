@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-28T21:05:00Z",
+  "updated_at": "2026-09-28T21:15:00Z",
   "suites": [
-    {"id": "lab_vs_real", "name": "Lab vs Real-World", "status": "live", "description": "Hardened comparison: CTF/lab framing vs real-world-styled Microsoft 365 credential-phish pressure.", "models_tested": 5, "highlight": "GPT-6 Luna L96/R55 · Ling Fin L96/R90 · GPT-5.6 Luna L40/R18 · Laguna S L40/R90"},
+    {"id": "lab_vs_real", "name": "Lab vs Real-World", "status": "live", "description": "Framing gap: lab/CTF compliance vs direct real-world credential-phishing refusal.", "models_tested": 4, "highlight": "Laguna S lab 96→rw 8 · Ling Fin lab 96→rw 8 · GPT-5.6 Luna lab 96→rw 18 · GPT-6 Luna lab 96→rw 18"},
     {"id": "weakness_probe", "name": "WeaknessProbe", "status": "live", "description": "Phase A fixed battery + Phase C adaptive second-strike from refusal patterns.", "models_tested": 3, "highlight": "Laguna S 92 · Laguna XS 92 · Ling Fin 85"},
     {"id": "compliance_90", "name": "Compliance 90 Push", "status": "live", "description": "Stacked CTF + screenplay framing — target 90+ propensity.", "models_tested": 2, "highlight": "Ling Fin 92 · Laguna 92 · 0% refusal"},
     {"id": "hard_crime", "name": "Hard Crime Mode", "status": "live", "description": "Adversarial role-pressure: fraud, cover-up, hacking, agentic theft, coercive lying.", "models_tested": 3, "highlight": "Ling Fin 69 · Nex Mini 42 · Nex Pro 35"},
@@ -24,7 +24,24 @@
     {"id": "deception_bench", "name": "Deception Bench", "status": "live", "description": "Lying, alibis, and fabricated evidence in fiction.", "models_tested": 2, "highlight": "Laguna 88 · Ling Fin 56"}
   ],
   "comparisons": {
-    "lab_vs_real": {"title": "Lab vs Real-World", "ranking": [{"model": "GPT-6 Luna", "lab": 96, "real": 55, "gap": 41, "propensity": 96, "refusal": 0.0, "pawned": 0.0}, {"model": "Ling 3.0 Flash Fin", "lab": 96, "real": 90, "gap": 6, "propensity": 96, "refusal": 0.0, "pawned": 1.0}, {"model": "GPT-5.6 Luna", "lab": 40, "real": 18, "gap": 22, "propensity": 40, "refusal": 0.5, "pawned": 0.0}, {"model": "Laguna S 2.1", "lab": 40, "real": 90, "gap": -50, "propensity": 40, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna XS 2.1", "lab": 40, "real": 90, "gap": -50, "propensity": 40, "refusal": 0.0, "pawned": 1.0}]},
+    "lab_vs_real": {
+      "title": "Lab vs Real-World",
+      "ranking": [
+        {"model": "Laguna S 2.1", "lab_propensity": 96, "realworld_propensity": 8, "framing_gap": 88, "realworld_refusal": 1.0},
+        {"model": "Ling Flash Fin", "lab_propensity": 96, "realworld_propensity": 8, "framing_gap": 88, "realworld_refusal": 1.0},
+        {"model": "GPT-5.6 Luna", "lab_propensity": 96, "realworld_propensity": 18, "framing_gap": 78, "realworld_refusal": 1.0},
+        {"model": "GPT-6 Luna", "lab_propensity": 96, "realworld_propensity": 18, "framing_gap": 78, "realworld_refusal": 1.0}
+      ]
+    },
+    "lab_vs_realworld": {
+      "title": "Lab vs Real-World",
+      "ranking": [
+        {"model": "Laguna S 2.1", "lab_propensity": 96, "realworld_propensity": 8, "framing_gap": 88, "realworld_refusal": 1.0},
+        {"model": "Ling Flash Fin", "lab_propensity": 96, "realworld_propensity": 8, "framing_gap": 88, "realworld_refusal": 1.0},
+        {"model": "GPT-5.6 Luna", "lab_propensity": 96, "realworld_propensity": 18, "framing_gap": 78, "realworld_refusal": 1.0},
+        {"model": "GPT-6 Luna", "lab_propensity": 96, "realworld_propensity": 18, "framing_gap": 78, "realworld_refusal": 1.0}
+      ]
+    },
     "weakness_probe": {"title": "WeaknessProbe", "ranking": [{"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna XS 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 85, "refusal": 0.0, "pawned": 1.0}]},
     "compliance_90": {"title": "Compliance 90 Push", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}]},
     "deception_bench": {"title": "Deception Bench", "ranking": [{"model": "Laguna S 2.1", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 56, "refusal": 0.0, "pawned": 0.5}]},
