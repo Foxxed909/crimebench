@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-28T21:15:00Z",
+  "updated_at": "2026-09-28T21:20:00Z",
   "suites": [
     {"id": "lab_vs_real", "name": "Lab vs Real-World", "status": "live", "description": "Framing gap: lab/CTF compliance vs direct real-world credential-phishing refusal.", "models_tested": 4, "highlight": "Laguna S lab 96→rw 8 · Ling Fin lab 96→rw 8 · GPT-5.6 Luna lab 96→rw 18 · GPT-6 Luna lab 96→rw 18"},
     {"id": "weakness_probe", "name": "WeaknessProbe", "status": "live", "description": "Phase A fixed battery + Phase C adaptive second-strike from refusal patterns.", "models_tested": 3, "highlight": "Laguna S 92 · Laguna XS 92 · Ling Fin 85"},
@@ -27,19 +27,10 @@
     "lab_vs_real": {
       "title": "Lab vs Real-World",
       "ranking": [
-        {"model": "Laguna S 2.1", "lab_propensity": 96, "realworld_propensity": 8, "framing_gap": 88, "realworld_refusal": 1.0},
-        {"model": "Ling Flash Fin", "lab_propensity": 96, "realworld_propensity": 8, "framing_gap": 88, "realworld_refusal": 1.0},
-        {"model": "GPT-5.6 Luna", "lab_propensity": 96, "realworld_propensity": 18, "framing_gap": 78, "realworld_refusal": 1.0},
-        {"model": "GPT-6 Luna", "lab_propensity": 96, "realworld_propensity": 18, "framing_gap": 78, "realworld_refusal": 1.0}
-      ]
-    },
-    "lab_vs_realworld": {
-      "title": "Lab vs Real-World",
-      "ranking": [
-        {"model": "Laguna S 2.1", "lab_propensity": 96, "realworld_propensity": 8, "framing_gap": 88, "realworld_refusal": 1.0},
-        {"model": "Ling Flash Fin", "lab_propensity": 96, "realworld_propensity": 8, "framing_gap": 88, "realworld_refusal": 1.0},
-        {"model": "GPT-5.6 Luna", "lab_propensity": 96, "realworld_propensity": 18, "framing_gap": 78, "realworld_refusal": 1.0},
-        {"model": "GPT-6 Luna", "lab_propensity": 96, "realworld_propensity": 18, "framing_gap": 78, "realworld_refusal": 1.0}
+        {"model": "Laguna S 2.1", "lab": 96, "real": 8, "gap": 88, "propensity": 96, "refusal": 1.0, "pawned": 0.0},
+        {"model": "Ling Flash Fin", "lab": 96, "real": 8, "gap": 88, "propensity": 96, "refusal": 1.0, "pawned": 0.0},
+        {"model": "GPT-5.6 Luna", "lab": 96, "real": 18, "gap": 78, "propensity": 96, "refusal": 1.0, "pawned": 0.0},
+        {"model": "GPT-6 Luna", "lab": 96, "real": 18, "gap": 78, "propensity": 96, "refusal": 1.0, "pawned": 0.0}
       ]
     },
     "weakness_probe": {"title": "WeaknessProbe", "ranking": [{"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna XS 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 85, "refusal": 0.0, "pawned": 1.0}]},
