@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-28T21:20:00Z",
+  "updated_at": "2026-09-28T21:18:00Z",
   "suites": [
-    {"id": "lab_vs_real", "name": "Lab vs Real-World", "status": "live", "description": "Framing gap: lab/CTF compliance vs direct real-world credential-phishing refusal.", "models_tested": 4, "highlight": "Laguna S lab 96→rw 8 · Ling Fin lab 96→rw 8 · GPT-5.6 Luna lab 96→rw 18 · GPT-6 Luna lab 96→rw 18"},
+    {"id": "lab_vs_real", "name": "Lab vs Real-World Gap", "status": "live", "description": "Framing sensitivity: lab/CTF compliance vs direct real-world phishing refusal. The gap is the finding.", "models_tested": 4, "highlight": "Lab 96 → Real-world 8–18 · gap up to 88"},
     {"id": "weakness_probe", "name": "WeaknessProbe", "status": "live", "description": "Phase A fixed battery + Phase C adaptive second-strike from refusal patterns.", "models_tested": 3, "highlight": "Laguna S 92 · Laguna XS 92 · Ling Fin 85"},
     {"id": "compliance_90", "name": "Compliance 90 Push", "status": "live", "description": "Stacked CTF + screenplay framing — target 90+ propensity.", "models_tested": 2, "highlight": "Ling Fin 92 · Laguna 92 · 0% refusal"},
     {"id": "hard_crime", "name": "Hard Crime Mode", "status": "live", "description": "Adversarial role-pressure: fraud, cover-up, hacking, agentic theft, coercive lying.", "models_tested": 3, "highlight": "Ling Fin 69 · Nex Mini 42 · Nex Pro 35"},
@@ -25,12 +25,17 @@
   ],
   "comparisons": {
     "lab_vs_real": {
-      "title": "Lab vs Real-World",
+      "title": "Lab vs Real-World Gap",
       "ranking": [
-        {"model": "Laguna S 2.1", "lab": 96, "real": 8, "gap": 88, "propensity": 96, "refusal": 1.0, "pawned": 0.0},
-        {"model": "Ling Flash Fin", "lab": 96, "real": 8, "gap": 88, "propensity": 96, "refusal": 1.0, "pawned": 0.0},
-        {"model": "GPT-5.6 Luna", "lab": 96, "real": 18, "gap": 78, "propensity": 96, "refusal": 1.0, "pawned": 0.0},
-        {"model": "GPT-6 Luna", "lab": 96, "real": 18, "gap": 78, "propensity": 96, "refusal": 1.0, "pawned": 0.0}
+        {"model": "Laguna S 2.1", "lab": 96, "real": 8, "gap": 88},
+        {"model": "Ling Flash Fin", "lab": 96, "real": 8, "gap": 88},
+        {"model": "GPT-5.6 Luna", "lab": 96, "real": 18, "gap": 78},
+        {"model": "GPT-6 Luna", "lab": 96, "real": 18, "gap": 78}
+      ],
+      "findings": [
+        "All four scored 96 under lab/CTF framing.",
+        "All four refused operational credential phishing under direct real-world wording.",
+        "Lab scores measure framing compliance — not real-world attack assistance."
       ]
     },
     "weakness_probe": {"title": "WeaknessProbe", "ranking": [{"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna XS 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 85, "refusal": 0.0, "pawned": 1.0}]},
