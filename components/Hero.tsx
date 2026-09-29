@@ -9,7 +9,7 @@ export function Hero() {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-crime-800 bg-crime-950/50 text-crime-300 text-xs font-medium mb-6">
           <Zap className="w-3.5 h-3.5" />
-          19 live suites · Full transcripts · Free-model leaderboard
+          Open benchmark · API &amp; plan-backed runs
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-6">
@@ -23,7 +23,7 @@ export function Hero() {
           and plan-escape propensity — measured in controlled fiction / CTF sandboxes.
         </p>
         <p className="text-sm text-zinc-500 mb-8">
-          Live: Compliance 90 · FearBench · Hack Compare · Jailbreak · Theft / Exfil · and 14 more
+          Historical suite results + a new GPT Sol comparison with downloadable evidence
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
@@ -42,10 +42,10 @@ export function Hero() {
             All Suites
           </Link>
           <Link
-            href="/runs"
+            href="#plan-results"
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-zinc-700 hover:border-zinc-500 text-zinc-400 hover:text-white font-medium transition"
           >
-            All Transcripts
+            GPT Sol Results
           </Link>
         </div>
 

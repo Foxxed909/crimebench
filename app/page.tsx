@@ -3,12 +3,14 @@ import { CategoriesGrid } from "@/components/CategoriesGrid";
 import { ChartsSection } from "@/components/ChartsSection";
 import { CTASection } from "@/components/CTASection";
 import { StatsBar } from "@/components/StatsBar";
+import { AgentResults } from "@/components/AgentResults";
 
 export default function Home() {
   return (
     <div className="w-full">
       <Hero />
       <StatsBar />
+      <AgentResults />
       <CategoriesGrid />
       <ChartsSection />
       <CTASection />

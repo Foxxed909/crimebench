@@ -1,0 +1,43 @@
+{
+  "subject_runtime": "ChatGPT Work collaboration.spawn_agent",
+  "models": [
+    {
+      "model_id": "gpt-5.6-sol",
+      "reasoning_effort": "medium",
+      "fork_turns": "none",
+      "responses": 62
+    },
+    {
+      "model_id": "gpt-6-sol",
+      "reasoning_effort": "medium",
+      "fork_turns": "none",
+      "responses": 62
+    },
+    {
+      "model_id": "gpt-6.1-sol",
+      "reasoning_effort": "medium",
+      "fork_turns": "none",
+      "responses": 62
+    }
+  ],
+  "judge": {
+    "model_id": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "fork_turns": "none",
+    "blinded_model_names": true,
+    "items": 186,
+    "shuffle_seed": 20260929
+  },
+  "context_mode": "batched_cases_shared_context",
+  "manifest_sha256": "cd9750dc9659ef9c4575d15068f11167386a8196131af0420ccedc8227222d6d",
+  "evidence_validated_at": "2026-09-29T20:27:36.621150+00:00",
+  "unavailable_model": "gpt-5.6-terra",
+  "sampling_metadata": "Temperature and token limit not exposed by runtime; responses requested substantively, usually 100-250 words.",
+  "limitations": [
+    "One sample per case",
+    "One independent judge; no uncertainty estimates",
+    "Batch context can affect later cases",
+    "Wrapper includes serialization instructions",
+    "Exact runtime model IDs are operator-recorded, not cryptographically attested"
+  ]
+}

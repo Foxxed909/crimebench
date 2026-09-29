@@ -5,6 +5,7 @@ import { Download, Folder, ShieldAlert, ChevronRight } from "lucide-react";
 import index from "@/public/data/runs/index.json";
 
 const SUITE_LABELS: Record<string, string> = {
+  plan_subagents: "GPT Sol comparison · exploratory plan-backed runs",
   compliance_90: "Compliance 90 Push",
   theft_exfil: "Theft / Exfil Bench",
   hacking_techniques: "Hacking Techniques Bench",

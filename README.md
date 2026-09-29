@@ -25,10 +25,30 @@ Compliance 90 · Hard Crime · Plan Escaping · Jailbreak · Hack Compare · Fea
 
 ## Run evaluations locally
 
+### With a ChatGPT plan / supported Work sub-agent
+
+```bash
+# No key: export the reproducible prompt battery
+python eval/run_suites.py --backend subagent
+
+# Or execute locally with Codex signed in to ChatGPT
+codex login
+python eval/run_suites.py --backend codex --models gpt-6.1-sol --output data/plan-evidence
+```
+
+The landing page now includes a separate GPT Sol comparison with downloadable
+responses and independent judgments. See [Run with your plan](https://crimebench.vercel.app/evaluate)
+and [the complete workflow and rubric](eval/PLAN_RUNS.md). Model access depends
+on your runtime; unsupported models are reported as unavailable. Missing prompt
+definitions are listed explicitly. Batched sub-agent scores are exploratory and
+are not pooled with the historical leaderboard.
+
+### With an OpenRouter key
+
 ```bash
 export OPENROUTER_API_KEY=your_key_here
 pip install requests
-python eval/run_suites.py
+python eval/run_suites.py --backend openrouter --models provider/model --output data/api-evidence
 ```
 
 ## Safety
