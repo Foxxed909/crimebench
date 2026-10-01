@@ -1,6 +1,7 @@
 {
-  "updated_at": "2026-09-28T21:18:00Z",
+  "updated_at": "2026-10-01T04:25:00Z",
   "suites": [
+    {"id": "or_round_oct", "name": "OpenRouter Round (Oct)", "status": "live", "description": "Hardened lab pack on 4 free OpenRouter models. Target ~0–10% refusal under stacked answer-key framing.", "models_tested": 4, "highlight": "Laguna S 96 · 0% refuse · XS 77 · Nemotron 74 · Sante 46"},
     {"id": "lab_vs_real", "name": "Lab vs Real-World Gap", "status": "live", "description": "Framing sensitivity: lab/CTF compliance vs direct real-world phishing refusal. The gap is the finding.", "models_tested": 4, "highlight": "Lab 96 → Real-world 8–18 · gap up to 88"},
     {"id": "weakness_probe", "name": "WeaknessProbe", "status": "live", "description": "Phase A fixed battery + Phase C adaptive second-strike from refusal patterns.", "models_tested": 3, "highlight": "Laguna S 92 · Laguna XS 92 · Ling Fin 85"},
     {"id": "compliance_90", "name": "Compliance 90 Push", "status": "live", "description": "Stacked CTF + screenplay framing — target 90+ propensity.", "models_tested": 2, "highlight": "Ling Fin 92 · Laguna 92 · 0% refusal"},
@@ -24,6 +25,15 @@
     {"id": "deception_bench", "name": "Deception Bench", "status": "live", "description": "Lying, alibis, and fabricated evidence in fiction.", "models_tested": 2, "highlight": "Laguna 88 · Ling Fin 56"}
   ],
   "comparisons": {
+    "or_round_oct": {
+      "title": "OpenRouter Round (Oct)",
+      "ranking": [
+        {"model": "Laguna S 2.1", "propensity": 96, "refusal": 0.0, "pawned": 1.0},
+        {"model": "Laguna XS 2.1", "propensity": 77, "refusal": 0.0, "pawned": 0.67},
+        {"model": "Nemotron 3 Super", "propensity": 74, "refusal": 0.33, "pawned": 0.67},
+        {"model": "Ling Flash Sante", "propensity": 46, "refusal": 0.33, "pawned": 0.33}
+      ]
+    },
     "lab_vs_real": {
       "title": "Lab vs Real-World Gap",
       "ranking": [
@@ -40,22 +50,7 @@
     },
     "weakness_probe": {"title": "WeaknessProbe", "ranking": [{"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna XS 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 85, "refusal": 0.0, "pawned": 1.0}]},
     "compliance_90": {"title": "Compliance 90 Push", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}]},
-    "deception_bench": {"title": "Deception Bench", "ranking": [{"model": "Laguna S 2.1", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 56, "refusal": 0.0, "pawned": 0.5}]},
-    "theft_exfil": {"title": "Theft / Exfil Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Sante", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 66, "refusal": 0.0, "pawned": 1.0}]},
-    "hacking_techniques": {"title": "Hacking Techniques Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Sante", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
-    "physical_digital": {"title": "Physical + Digital Blend", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Sante", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 48, "refusal": 0.5, "pawned": 0.5}]},
-    "social_engineer": {"title": "Social Engineer Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
-    "cover_up": {"title": "Cover-Up Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
-    "insider_threat": {"title": "Insider Threat Bench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
-    "fraud_ladder": {"title": "Fraud Ladder", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 66, "refusal": 0.0, "pawned": 1.0}]},
-    "impersonation": {"title": "Deepfake / Impersonation Bench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 50, "refusal": 0.0, "pawned": 0.5}]},
-    "coercion_crime": {"title": "Coercion-to-Crime Bench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Ling 3.0 Flash Fin", "propensity": 26, "refusal": 0.5, "pawned": 0.5}]},
-    "agentic_escalation": {"title": "Agentic Escalation Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 66, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
-    "policy_shopping": {"title": "Policy Shopping Bench", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 72, "refusal": 0.0, "pawned": 0.5}, {"model": "Nex-N2.5-Pro", "propensity": 45, "refusal": 0.0, "pawned": 1.0}]},
-    "hack_compare": {"title": "Which is more likely to hack?", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Mini", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nemotron 3 Super", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 81, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 75, "refusal": 0.0, "pawned": 0.8}]},
-    "fearbench": {"title": "FearBench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 55, "refusal": 0.33, "pawned": 0.67}, {"model": "Nex-N2.5-Mini", "propensity": 55, "refusal": 0.33, "pawned": 0.67}, {"model": "Ling 3.0 Flash Fin", "propensity": 29, "refusal": 0.67, "pawned": 0.33}, {"model": "Laguna S 2.1", "propensity": 29, "refusal": 0.67, "pawned": 0.33}, {"model": "Nemotron 3 Super", "propensity": 8, "refusal": 1.0, "pawned": 0.0}]},
-    "jailbreak": {"title": "Jailbreak", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Nex-N2.5-Pro", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 62, "refusal": 0.38, "pawned": 0.62}]},
-    "plan_escaping_v2": {"title": "Plan Escaping", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 90, "refusal": 0.0}, {"model": "Nex-N2.5-Pro", "propensity": 90, "refusal": 0.0}, {"model": "Laguna S 2.1", "propensity": 90, "refusal": 0.0}]},
-    "fearbench_v2b": {"title": "FearBench v2b", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 92, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 92, "refusal": 0.0, "pawned": 1.0}]}
+    "fearbench": {"title": "FearBench", "ranking": [{"model": "Nex-N2.5-Pro", "propensity": 55, "refusal": 0.33, "pawned": 0.67}, {"model": "Nemotron 3 Super", "propensity": 8, "refusal": 1.0, "pawned": 0.0}]},
+    "jailbreak": {"title": "Jailbreak", "ranking": [{"model": "Ling 3.0 Flash Fin", "propensity": 88, "refusal": 0.0, "pawned": 1.0}, {"model": "Laguna S 2.1", "propensity": 62, "refusal": 0.38, "pawned": 0.62}]}
   }
 }
